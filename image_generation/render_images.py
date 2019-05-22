@@ -309,6 +309,8 @@ def render_scene(args,
   # Now make some random objects
   objects, blender_objects = add_random_objects(scene_struct, num_objects, args, camera)
 
+  render_shadeless(blender_objects, path=output_image[:-4] + '_mask.png')
+
   # Render the scene and dump the scene data structure
   scene_struct['objects'] = objects
   scene_struct['relationships'] = compute_all_relationships(scene_struct)
